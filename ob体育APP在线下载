@@ -1,0 +1,24 @@
+Để tạo menu trong WordPress, chúng ta có thể sử dụng hàm wp_nav_menu(). Hàm này sẽ tạo ra một đoạn mã HTML để hiển thị menu, được định dạng theo các thông số được truyền vào.
+
+Dưới đây là một đoạn code PHP để tạo một menu trong WordPress:
+<?php
+$args = array(
+    'theme_location' => 'primary',
+    'container' => 'nav',
+    'container_class' => 'menu',
+    'menu_class' => 'menu-list',
+    'fallback_cb' => false
+);
+
+wp_nav_menu($args);
+?>
+Trong đoạn code trên, chúng ta sử dụng hàm wp_nav_menu() để tạo menu. Đối số đầu tiên của hàm là một mảng các tham số. Các tham số này bao gồm:
+
+'theme_location': Tên vị trí của menu trong theme, nếu theme của bạn hỗ trợ nhiều vị trí menu thì bạn có thể chọn vị trí menu phù hợp.
+'container': Thẻ HTML bao bọc menu.
+'container_class': Lớp CSS của thẻ bao bọc menu.
+'menu_class': Lớp CSS của thẻ ul chứa menu.
+'fallback_cb': Hàm sử dụng khi không có menu được tạo ra.
+Sau khi bạn định nghĩa các tham số, chúng ta sử dụng hàm wp_nav_menu() để tạo menu.
+
+Lưu ý rằng để menu hiển thị đúng, bạn cần phải tạo các menu trong trang Quản trị WordPress (Appearance -> Menus) và chỉ định vị trí của menu cho theme.
