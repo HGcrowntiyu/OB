@@ -1,0 +1,16 @@
+Để tạo sidebar trong WordPress, chúng ta cần sử dụng hai file: functions.php và sidebar.php.
+
+Trong file functions.php, chúng ta sử dụng hàm register_sidebar() để đăng ký một sidebar mới. Hàm này có thể được gọi trong hàm after_setup_theme của WordPress để đảm bảo rằng sidebar được đăng ký trước khi chủ đề được tải lên. Ví dụ: 
+Để tạo sidebar trong WordPress, chúng ta cần sử dụng hai file: functions.php và sidebar.php.
+
+Trong file functions.php, chúng ta sử dụng hàm register_sidebar() để đăng ký một sidebar mới. Hàm này có thể được gọi trong hàm after_setup_theme của WordPress để đảm bảo rằng sidebar được đăng ký trước khi chủ đề được tải lên. Ví dụ:
+Trong đoạn mã trên, chúng ta đăng ký một sidebar mới với ID là sidebar-1 và tên là Sidebar. Chúng ta cũng cung cấp một mô tả cho sidebar, cũng như một số lớp CSS để trang trí các tiện ích trong sidebar.
+
+Sau khi sidebar được đăng ký, chúng ta có thể sử dụng file sidebar.php để hiển thị nó trong chủ đề WordPress. File này sẽ được gọi bởi hàm get_sidebar() trong file template của chủ đề.
+<div id="secondary" class="widget-area" role="complementary">
+    <?php dynamic_sidebar( 'sidebar-1' ); ?>
+</div><!-- #secondary -->
+
+Trong đoạn mã trên, chúng ta sử dụng hàm dynamic_sidebar() để hiển thị nội dung của sidebar với ID là sidebar-1. Nội dung này sẽ bao gồm các tiện ích mà người dùng đã thêm vào trong phần Appearance -> Widgets của trang quản trị WordPress.
+
+Chúng ta có thể tùy chỉnh nội dung của sidebar bằng cách sử dụng các lớp CSS và các tiện ích khác nhau được cung cấp bởi WordPress.
