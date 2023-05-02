@@ -1,0 +1,8 @@
+Để lấy sidebar trong WordPress, chúng ta có thể sử dụng hàm dynamic_sidebar() để hiển thị nội dung của sidebar có ID tương ứng. Ví dụ, để lấy sidebar có ID là sidebar-1, chúng ta có thể sử dụng đoạn mã sau:
+<div id="secondary" class="widget-area" role="complementary">
+    <?php dynamic_sidebar( 'sidebar-1' ); ?>
+</div><!-- #secondary -->
+
+Trong đoạn mã trên, chúng ta sử dụng hàm dynamic_sidebar() để hiển thị nội dung của sidebar với ID là sidebar-1. Nội dung này sẽ bao gồm các tiện ích mà người dùng đã thêm vào trong phần Appearance -> Widgets của trang quản trị WordPress.
+
+Nếu sidebar không tồn tại hoặc không có nội dung, hàm dynamic_sidebar() sẽ không hiển thị gì cả và không gây ra lỗi. Do đó, chúng ta có thể yên tâm sử dụng hàm này mà không cần kiểm tra xem sidebar có tồn tại hay không.
