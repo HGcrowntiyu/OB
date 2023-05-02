@@ -1,0 +1,31 @@
+Để lấy danh sách menu trong WordPress, chúng ta có thể sử dụng hàm wp_get_nav_menus(). Hàm này sẽ trả về một mảng các menu đã được tạo ra trong trang Quản trị WordPress (Appearance -> Menus).
+
+Dưới đây là một đoạn code PHP để lấy danh sách menu trong WordPress:
+<?php
+$menus = wp_get_nav_menus();
+
+foreach ($menus as $menu) {
+    echo '<p>Menu name: ' . $menu->name . '</p>';
+    echo '<p>Menu description: ' . $menu->description . '</p>';
+    echo '<p>Menu location: ' . $menu->location . '</p>';
+    echo '<p>Menu items:</p>';
+
+    $menu_items = wp_get_nav_menu_items($menu->term_id);
+    if (!empty($menu_items)) {
+        echo '<ul>';
+        foreach ($menu_items as $item) {
+            echo '<li><a href="' . $item->url . '">' . $item->title . '</a></li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '<p>No items found.</p>';
+    }
+}
+?>
+Trong đoạn code trên, chúng ta sử dụng hàm wp_get_nav_menus() để lấy danh sách menu. Sau đó, chúng ta sử dụng vòng lặp foreach để duyệt qua các menu và hiển thị thông tin của chúng.
+
+Để lấy danh sách các mục trong menu, chúng ta sử dụng hàm wp_get_nav_menu_items() với đối số là ID của menu (được lấy từ thuộc tính $menu->term_id).
+
+Sau đó, chúng ta sử dụng một vòng lặp foreach khác để duyệt qua các mục trong menu và hiển thị thông tin của chúng.
+
+Lưu ý rằng bạn cần phải tạo các menu trong trang Quản trị WordPress (Appearance -> Menus) để có thể lấy danh sách các menu.
